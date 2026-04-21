@@ -1,0 +1,32 @@
+# agent-skills
+
+Cross-platform AI agent skills for regulated industries and underserved markets.
+
+## What
+
+Open-source repository of high-quality SKILL.md files compatible with Claude Code, Codex, Gemini CLI, Cursor, Copilot, Windsurf, and Cline.
+
+## Focus Areas
+
+- EU regulatory compliance (AI Act, NIS2, DORA, GDPR)
+- French professional skills (accounting PCG/FEC, notary, property management)
+- Skill security and auditing
+- Agent evaluation and testing
+- Open data exploitation (France, EU)
+- Offline/frugal computing (Africa, low-bandwidth)
+- Document processing (invoices, contracts, forms)
+
+## Install
+
+npx skills add BuilderCed/agent-skills
+npx skills add BuilderCed/agent-skills --skill eu-ai-act-compliance
+
+## Format
+
+Each skill follows the SKILL.md open standard with YAML frontmatter.
+Skills are written in natural language for maximum cross-platform compatibility.
+Platform-specific extensions (hooks, agents, MCP) are in subdirectories.
+
+## License
+
+MIT

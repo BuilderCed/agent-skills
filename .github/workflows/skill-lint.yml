@@ -1,0 +1,35 @@
+name: Skill Lint & Security Scan
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run skill audit
+        run: bash scripts/audit-all.sh
+
+      - name: Check for Unicode anomalies
+        run: |
+          # Detect invisible Unicode characters in SKILL.md files
+          if grep -rP '[\x{200B}\x{200C}\x{200D}\x{FEFF}\x{202E}]' skills/; then
+            echo "::error::Invisible Unicode characters detected in skills"
+            exit 1
+          fi
+          echo "No Unicode anomalies found"
+
+      - name: Verify skill sizes
+        run: |
+          # Flag skills exceeding 3K token budget (~12KB)
+          find skills -name "SKILL.md" -size +12k | while read f; do
+            echo "::warning file=$f::Skill exceeds 3K token budget"
+          done

@@ -1,0 +1,43 @@
+name: Freshness Check
+
+on:
+  schedule:
+    - cron: '0 8 1 * *'  # 1st of each month at 8:00 UTC
+  workflow_dispatch:
+
+jobs:
+  check-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check skill freshness
+        run: |
+          echo "## Freshness Report" > freshness-report.md
+          echo "" >> freshness-report.md
+          STALE=0
+          find skills -name "SKILL.md" | while read f; do
+            DATE=$(grep "^last-updated:" "$f" | grep -oE "[0-9]{4}-[0-9]{2}-[0-9]{2}" | head -1)
+            if [ -n "$DATE" ]; then
+              DAYS=$(( ( $(date +%s) - $(date -d "$DATE" +%s) ) / 86400 ))
+              SKILL=$(basename $(dirname "$f"))
+              if [ "$DAYS" -gt 90 ]; then
+                echo "- **[STALE]** \`$SKILL\` — $DAYS days old" >> freshness-report.md
+                STALE=$((STALE + 1))
+              elif [ "$DAYS" -gt 60 ]; then
+                echo "- **[REVIEW]** \`$SKILL\` — $DAYS days old" >> freshness-report.md
+              fi
+            fi
+          done
+          cat freshness-report.md
+          if [ "$STALE" -gt 0 ]; then
+            echo "::warning::$STALE stale skills found (>90 days)"
+          fi
+
+      - name: Create issue if stale skills found
+        if: ${{ hashFiles('freshness-report.md') != '' }}
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Monthly Freshness Report"
+          content-filepath: freshness-report.md
+          labels: freshness,maintenance
