@@ -24,17 +24,18 @@ Works with: Claude Code, Codex, Gemini CLI, Cursor, Copilot, Windsurf, Cline, an
 
 ## Skills
 
-### Compliance & Regulatory (5 skills)
+### Compliance & Regulatory (6 skills)
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
 | [`eu-ai-act-compliance`](skills/compliance/eu-ai-act-compliance/) | Risk classification, Article 50 disclosures, audit trails | EU |
+| [`eu-ai-act-content-disclosure`](skills/compliance/eu-ai-act-content-disclosure/) | AI content marking, metadata tags, disclosure templates | EU |
 | [`eu-nis2-compliance`](skills/compliance/eu-nis2-compliance/) | Cybersecurity obligations for essential entities | EU |
 | [`eu-dora-compliance`](skills/compliance/eu-dora-compliance/) | Digital resilience for financial sector | EU |
 | [`gdpr-data-protection`](skills/compliance/gdpr-data-protection/) | DPIA, data rights, processing records | EU |
 | [`eu-regulatory-router`](skills/compliance/eu-regulatory-router/) | Identifies which regulations apply to your system | EU |
 
-### French Professional & Personal (7 skills)
+### French Professional & Personal (9 skills)
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
@@ -42,41 +43,48 @@ Works with: Claude Code, Codex, Gemini CLI, Cursor, Copilot, Windsurf, Cline, an
 | [`fr-fec-generator`](skills/metier-fr/fr-fec-generator/) | FEC file generation (DGFIP compliant) | FR |
 | [`fr-facturation-electronique`](skills/metier-fr/fr-facturation-electronique/) | E-invoicing Factur-X/UBL (mandatory 2026) | FR |
 | [`fr-fiscalite-particulier`](skills/metier-fr/fr-fiscalite-particulier/) | Personal income tax, brackets, deductions, crypto | FR |
-| [`fr-droit-immobilier`](skills/metier-fr/fr-droit-immobilier/) | Leases, diagnostics, housing law, renovation aids | FR |
 | [`fr-fiscalite-investissement`](skills/metier-fr/fr-fiscalite-investissement/) | PEA, CTO, assurance-vie, PER, capital gains | FR |
+| [`fr-droit-immobilier`](skills/metier-fr/fr-droit-immobilier/) | Leases, diagnostics, housing law, renovation aids | FR |
+| [`fr-notariat`](skills/metier-fr/fr-notariat/) | Notary fees, succession, donation, SCI | FR |
+| [`fr-recherche-emploi`](skills/metier-fr/fr-recherche-emploi/) | Job search, CV, cover letter, interview prep, negotiation | FR/EU |
 
-### Security & Quality (2 skills)
+### Security & Quality (3 skills)
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
 | [`skill-security-audit`](skills/security/skill-security-audit/) | Audit skills for injection, secrets, manipulation | Global |
+| [`skill-quality-linter`](skills/security/skill-quality-linter/) | Validate skill structure, frontmatter, portability | Global |
 | [`devsecops-supply-chain`](skills/devsecops/devsecops-supply-chain/) | SBOM generation, SLSA compliance | Global |
 
-### Agent Evaluation (1 skill)
+### Agent Evaluation (2 skills)
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
 | [`agent-eval-framework`](skills/eval/agent-eval-framework/) | Evaluate agent outputs with rubrics | Global |
+| [`tech-debt-detector`](skills/eval/tech-debt-detector/) | Detect AI-generated technical debt patterns | Global |
 
-### Privacy (1 skill)
+### Privacy & Sovereignty (2 skills)
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
 | [`pii-detection`](skills/privacy/pii-detection/) | Detect PII in code and data | Global |
+| [`data-sovereignty-patterns`](skills/sovereignty/data-sovereignty-patterns/) | Cross-border data transfers, SCCs, adequacy | Global/EU |
 
-### Data & Documents (2 skills)
+### Data & Documents (3 skills)
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
 | [`fr-open-data-explorer`](skills/data/fr-open-data-explorer/) | Exploit data.gouv.fr (SIRENE, DVF, DPE) | FR |
 | [`invoice-processing`](skills/documents/invoice-processing/) | Invoice extraction and validation | Global |
+| [`contract-analysis`](skills/documents/contract-analysis/) | Contract clauses, risks, obligations, deadlines | Global/FR |
 
-### Offline & Africa (2 skills)
+### Offline & Africa (3 skills)
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
 | [`offline-first-development`](skills/offline/offline-first-development/) | Offline-first patterns (IndexedDB, sync) | Global |
 | [`africa-mobile-money`](skills/africa/africa-mobile-money/) | M-Pesa, Orange Money, Wave, MTN MoMo | Africa |
+| [`africa-ussd-development`](skills/africa/africa-ussd-development/) | USSD app development for feature phones | Africa |
 
 ### Infrastructure (3 skills)
 
@@ -90,7 +98,7 @@ Works with: Claude Code, Codex, Gemini CLI, Cursor, Copilot, Windsurf, Cline, an
 
 | Skill | Description | Geo |
 |-------|-------------|-----|
-| [`find-skills`](skills/meta/find-skills/) | Discover the right skill for your task | Global |
+| [`find-skills`](skills/meta/find-skills/) | Discover skills from this repo + ecosystem | Global |
 
 ## Architecture
 
