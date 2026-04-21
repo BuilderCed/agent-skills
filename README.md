@@ -1,5 +1,7 @@
 # agent-skills
 
+[English](README.md) | [Francais](README.fr.md)
+
 Cross-platform AI agent skills for **regulated industries** and **underserved markets**.
 
 While [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) covers React, Cloudflare, and Supabase, we cover **EU compliance, French accounting, African mobile money, and agent security** — the verticals nobody else does well.
